@@ -65,7 +65,7 @@ function setup(){
   
   aroundSetup();
   myStats = new GameStats();  
-  goodMoves=""
+  goodMoves="";
   gamePreSetup();
   gameSetup(false);
 }
