@@ -20,9 +20,17 @@ let solutions;
 let currentsol = "";
 let goodCounter = 0
 let totalCounter = 0
+
+async function run(scramble){
+    if(!solver.ready) return [];
+    var result = await solver.solve(scramble);
+    return result.split('');
+}
+
 function getGoodMoves(scramble)
 {
-  return ["R","L"]
+  result = await run(scramble);
+  return result;
 }
 
 function gamePreSetup(){
