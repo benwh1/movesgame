@@ -5,7 +5,7 @@ let eatsound;
 let tileColors;
 let goodMoves;
 let lastMove;
-
+var solver = new MovesGameSolver();
 let tileColorsIndex = 
 [[0,0,0,
   3,6,9,
