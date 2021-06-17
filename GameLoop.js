@@ -24,12 +24,13 @@ function draw(){
       myGraphics.textThings();      
    }
     else{
+        if(!readyForInput){
         background(51);
-        text('Solving, please wait...', 400, 400);
+        text('Solving, please wait...', 400, 400);}
       if (!myGraphics.gameOverDrawn){
         lastMove=""
         exitSave = true;   //you can exit session once if youre just lose
-
+        readyForInput = false;
         gameSetup(exitSave); 
       }
     }
