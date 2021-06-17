@@ -12,7 +12,11 @@ let myGraph;
 
 function draw(){
   if(!readyForInput){
-        background(51);
+        if (lastgood){
+        background(0,255,0);}
+        else{
+          background(255,0,0);
+        }
         text('Solving, please wait...', 400, 400);}
   else{
   if (settingspage){
