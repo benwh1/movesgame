@@ -87,8 +87,12 @@ function mousePressedCNV(){
 }
 
 //KeyListener
-function keyPressed(){ 
- if (myStats.keyboard){
+function keyPressed(){
+  if(!readyForInput){
+    return;
+  }
+
+  if (myStats.keyboard){
     if (keyCode === UP_ARROW || key === 'i'){
       move(3);
     }

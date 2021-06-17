@@ -1,5 +1,7 @@
 let gameName;
 
+let readyForInput = false;
+
 let reactions;
 let solvesT;
 let solvesR;
@@ -23,7 +25,8 @@ let totalCounter = 0
 
 async function getGoodMoves(scramble){
     if(!solver.ready) return [];
-    return await solver.solve(scramble).split('');
+    var result = await solver.solve(scramble);
+    return result.split('');
 }
 
 function gamePreSetup(){
@@ -54,7 +57,9 @@ function nullSolveInfo(){
   
 }
 
-function nullGame(){
+async function nullGame(){
+  readyForInput = false;
+
   let N = myStats.N;
   //console.log(randomNumbers);
   randomNumbers = [];
@@ -102,7 +107,9 @@ function nullGame(){
   str = str.replace(lastnumber, "0");
   scrambles.push(str);
   goodMoves.length = 0;
-  goodMoves = await getGoodMoves(str)
+  goodMoves = await getGoodMoves(str);
+  readyForInput = true;
+  console.log("good moves - " + goodMoves);
   currentsol = "";
   //print(scrambles);
 }
