@@ -23,12 +23,13 @@ function draw(){
       gameThings();  
       myGraphics.textThings();      
    }
-    else{ 
+    else{
+        background(51);
+        text('Solving, please wait...', 400, 400);
       if (!myGraphics.gameOverDrawn){
         lastMove=""
         exitSave = true;   //you can exit session once if youre just lose
-        background(51);
-        text('Solving, please wait...', 400, 400);
+
         gameSetup(exitSave); 
       }
     }
