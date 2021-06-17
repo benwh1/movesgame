@@ -21,9 +21,12 @@ let currentsol = "";
 let goodCounter = 0
 let totalCounter = 0
 
-async function getGoodMoves(scramble){
-    if(!solver.ready) return [];
-    return await solver.solve(scramble).split('');
+function getGoodMoves(scramble){
+    solver.solve(scramble).then((result) => {
+        return result.split('');
+    }).catch((error) => {
+        return "ERROR"
+    });
 }
 
 function gamePreSetup(){
@@ -102,7 +105,7 @@ function nullGame(){
   str = str.replace(lastnumber, "0");
   scrambles.push(str);
   goodMoves.length = 0;
-  goodMoves = await getGoodMoves(str)
+  goodMoves = getGoodMoves(str)
   currentsol = "";
   //print(scrambles);
 }
