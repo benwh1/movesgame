@@ -1,5 +1,5 @@
 let gameName;
-
+let lastgood = true;
 let readyForInput = false;
 
 let reactions;
@@ -161,8 +161,11 @@ function checkIfLose(){
   //print(lastMove)
   if (lastMove != ""){
     print(lastMove)
+    lastgood = false;
     if (goodMoves.includes(lastMove)){
-      goodCounter = goodCounter+1}
+      goodCounter = goodCounter+1;
+      lastgood = true;
+    }
     totalCounter = totalCounter+1;
     return true;
   }
